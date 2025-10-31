@@ -1,0 +1,9 @@
+{% extends 'shop/base.html.twig' %}
+
+{% block title %}商品详情{% endblock %}
+
+{% block body %}
+<div {{ vue_component('shop/pages/ItemDetailPage', {
+    'id': id
+}) }}></div>
+{% endblock %}

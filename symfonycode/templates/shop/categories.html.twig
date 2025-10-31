@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}全部分类 - Saleyee{% endblock %}
+
+{% block initialState %}
+    categories: {{ categories|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <all-categories-page 
+        :categories="window.__INITIAL_STATE__.categories">
+    </all-categories-page>
+</div>
+{% endblock %}

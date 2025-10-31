@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #CB261C;
+  --color-primary-light: #E8473D;
+  --color-primary-dark: #A31A14;
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+  --color-border: #E5E7EB;
+  --color-bg: #FFFFFF;
+  --color-bg-light: #F9FAFB;
+  --section-gap: 32px;
+  --category-width: 200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 通用样式 */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* 容器宽度 */
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 80%;
+    min-width: 1150px;
+  }
+}
+
+/* 头部固定 */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 产品卡片 */
+.product-card {
+  @apply bg-white rounded-lg shadow-sm transition duration-300 hover:shadow-md overflow-hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-image {
+  @apply w-full aspect-square object-cover bg-slate-100;
+}
+
+.product-title {
+  @apply text-sm font-medium text-slate-800 line-clamp-2;
+}
+
+.product-price {
+  @apply text-base font-semibold text-primary;
+}
+
+.product-original-price {
+  @apply text-xs text-slate-500 line-through ml-2;
+}
+
+/* 按钮样式 */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition duration-300 border border-transparent;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark;
+}
+
+.btn-secondary {
+  @apply bg-slate-100 text-slate-700 hover:bg-slate-200;
+}
+
+.btn-outline {
+  @apply border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+.btn-sm {
+  @apply px-3 py-1 text-xs;
+}
+
+.btn-md {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-lg {
+  @apply px-6 py-3 text-base;
+}
+
+/* 标签样式 */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+}
+
+.badge-primary {
+  @apply bg-primary/10 text-primary;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-800;
+}
+
+/* 分割线 */
+.divider {
+  @apply h-px bg-slate-200;
+}
+
+/* 加载动画 */
+.loading-spinner {
+  @apply inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin;
+}
+
+/* 响应式网格 */
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid-products {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* 侧边栏 */
+.sidebar {
+  @apply hidden lg:block;
+}
+
+/* 响应式隐藏 */
+.hide-mobile {
+  @apply hidden md:block;
+}
+
+.hide-desktop {
+  @apply md:hidden;
+}
+
+/* 平滑过渡 */
+.transition-smooth {
+  @apply transition duration-300 ease-in-out;
+}
+
+/* 文本截断 */
+.truncate-line-1 {
+  @apply line-clamp-1;
+}
+
+.truncate-line-2 {
+  @apply line-clamp-2;
+}
+
+.truncate-line-3 {
+  @apply line-clamp-3;
+}
+
+/* Element Plus 定制 */
+.el-button.is-plain:hover {
+  background-color: var(--color-bg-light);
+}
+
+.el-input__inner:focus,
+.el-textarea__inner:focus {
+  border-color: var(--color-primary);
+}
+
+.el-pagination .btn-prev:hover,
+.el-pagination .btn-next:hover,
+.el-pager li:hover {
+  color: var(--color-primary);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* 打印样式 */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+/* 深色模式（可选） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #f1f5f9;
+    --color-text-light: #cbd5e1;
+    --color-bg: #1e293b;
+    --color-bg-light: #0f172a;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+}

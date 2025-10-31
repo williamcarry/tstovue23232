@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}平台公告 - Saleyee{% endblock %}
+
+{% block initialState %}
+    announcements: {{ announcements|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <mall-announcement-page 
+        :announcements="window.__INITIAL_STATE__.announcements">
+    </mall-announcement-page>
+</div>
+{% endblock %}

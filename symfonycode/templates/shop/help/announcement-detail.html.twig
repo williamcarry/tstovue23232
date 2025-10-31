@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }} - Saleyee{% endblock %}
+
+{% block initialState %}
+    announcement: {{ announcement|raw }},
+    announcementId: {{ announcementId }},
+    relatedAnnouncements: {{ relatedAnnouncements|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <mall-announcement-detail-page 
+        :announcement="window.__INITIAL_STATE__.announcement"
+        :announcement-id="window.__INITIAL_STATE__.announcementId"
+        :related-announcements="window.__INITIAL_STATE__.relatedAnnouncements">
+    </mall-announcement-detail-page>
+</div>
+{% endblock %}

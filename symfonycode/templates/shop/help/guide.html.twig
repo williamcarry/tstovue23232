@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}操作指南 - Saleyee{% endblock %}
+
+{% block initialState %}
+    guides: {{ guides|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <operation-guide-page 
+        :guides="window.__INITIAL_STATE__.guides">
+    </operation-guide-page>
+</div>
+{% endblock %}

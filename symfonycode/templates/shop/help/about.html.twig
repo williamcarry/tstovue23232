@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}关于Saleyee - Saleyee{% endblock %}
+
+{% block initialState %}
+    aboutInfo: {{ aboutInfo|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <about-saleyee-page 
+        :about-info="window.__INITIAL_STATE__.aboutInfo">
+    </about-saleyee-page>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }} - Saleyee{% endblock %}
+
+{% block initialState %}
+    faq: {{ faq|raw }},
+    faqId: {{ faqId }},
+    relatedFaqs: {{ relatedFAQs|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <faq-detail-page 
+        :faq="window.__INITIAL_STATE__.faq"
+        :faq-id="window.__INITIAL_STATE__.faqId"
+        :related-faqs="window.__INITIAL_STATE__.relatedFaqs">
+    </faq-detail-page>
+</div>
+{% endblock %}

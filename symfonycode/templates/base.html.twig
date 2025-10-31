@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saleyee - 在线交易平台">
+    <meta name="keywords" content="商城,商品,交易,采购">
+    <title>{% block title %}Saleyee - 在线交易平台{% endblock %}</title>
+    
+    <!-- CSS 样式 -->
+    {% block stylesheets %}
+        {# Tailwind CSS 和全局样式 #}
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+        {# Element Plus 样式 #}
+        <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    {% endblock %}
+    
+    <style>
+        :root {
+            --color-primary: #CB261C;
+            --color-primary-light: #E8473D;
+            --color-primary-dark: #A31A14;
+            --color-text: #1F2937;
+            --color-text-light: #6B7280;
+            --color-border: #E5E7EB;
+            --color-bg: #FFFFFF;
+            --color-bg-light: #F9FAFB;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <!-- Vue 应用挂载点 -->
+    <div id="app">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 传递初始数据给 Vue 应用 -->
+    <script>
+        window.__INITIAL_STATE__ = {
+            currentUser: null,
+            language: 'zh-CN',
+            apiBaseUrl: '{{ app.request.baseUrl }}',
+            timestamp: {{ "now"|date('U') }},
+            {% block initialState %}{% endblock %}
+        };
+
+        // 翻译数据（可选）
+        window.__TRANSLATIONS__ = {
+            'nav.home': '首页',
+            'nav.products': '全部商品',
+            'nav.help': '帮助中心',
+            'nav.about': '关于我们',
+        };
+    </script>
+
+    <!-- Vue 应用脚本 -->
+    {% block javascripts %}
+        {# 开发环境下可使用 vite dev server #}
+        {# <script type="module" src="http://localhost:5173/@vite/client"></script> #}
+        {# <script type="module" src="http://localhost:5173/assets/vue/main.js"></script> #}
+        
+        {# 生产环境下使用编译后的文件 #}
+        <script src="{{ asset('assets/vue/main.js') }}" defer></script>
+    {% endblock %}
+</body>
+</html>

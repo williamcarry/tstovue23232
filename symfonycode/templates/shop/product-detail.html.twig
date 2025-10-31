@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }} - Saleyee{% endblock %}
+
+{% block initialState %}
+    product: {{ product|raw }},
+    productId: {{ productId }},
+    relatedProducts: {{ relatedProducts|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <!-- Vue 组件：商品详情页面 -->
+    <item-detail-page 
+        :product="window.__INITIAL_STATE__.product"
+        :product-id="window.__INITIAL_STATE__.productId"
+        :related-products="window.__INITIAL_STATE__.relatedProducts">
+    </item-detail-page>
+</div>
+{% endblock %}

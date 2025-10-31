@@ -1,0 +1,36 @@
+{
+  "name": "saleyee-symfony-ux-vue",
+  "version": "1.0.0",
+  "description": "Saleyee Symfony UX Vue 项目",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --fix",
+    "format": "prettier --write 'assets/**/*.{js,vue,css}'",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "element-plus": "^2.11.4",
+    "lucide-vue-next": "^0.545.0",
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-plugin-vue": "~10.2.0",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^3.4.11",
+    "typescript": "^5.9.3",
+    "vite": "^7.0.0",
+    "vite-plugin-vue-devtools": "^7.7.7",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^2.1.6"
+  }
+}

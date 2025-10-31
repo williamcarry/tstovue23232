@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}全部商品 - Saleyee{% endblock %}
+
+{% block initialState %}
+    products: {{ products|raw }},
+    filters: {{ filters|raw }},
+    filterOptions: {{ filterOptions|raw }},
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-slate-50">
+    <!-- Vue 组件：商品列表页面 -->
+    <all-products-page 
+        :products="window.__INITIAL_STATE__.products"
+        :filters="window.__INITIAL_STATE__.filters"
+        :filter-options="window.__INITIAL_STATE__.filterOptions">
+    </all-products-page>
+</div>
+
+<script>
+    // 页面加载完毕后初始化 Vue 应用
+    document.addEventListener('DOMContentLoaded', function() {
+        // Vue 应用已在 main.js 中自动初始化
+    });
+</script>
+{% endblock %}
